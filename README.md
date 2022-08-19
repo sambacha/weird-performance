@@ -2,6 +2,16 @@
 
 > Performance Regressions due to configurations, env, etc.
 
+
+### Resources
+
+[https://bugs.chromium.org/p/chromium/issues/list?q=label:Performance-Browser](https://bugs.chromium.org/p/chromium/issues/list?q=label:Performance-Browser)
+
+[https://bugs.chromium.org/p/chromium/issues/list?q=label:Performance-Responsiveness](https://bugs.chromium.org/p/chromium/issues/list?q=label:Performance-Responsiveness)
+
+[https://bugs.chromium.org/p/chromium/issues/list?q=label:Hotlist-Polish](https://bugs.chromium.org/p/chromium/issues/list?q=label:Hotlist-Polish)
+
+
 ## Disable double tap to zoom to improve FID
 
 For background see [Issue 1108987: Disable double tap to zoom when width=devicewidth or initial_scale=1?](https://bugs.chromium.org/p/chromium/issues/detail?id%3D1108987&sa=D&usg=AFQjCNEbEVB7yYOkxIKuB9z6v9m2Vpf0SA)
@@ -65,4 +75,8 @@ Here are the numbers for Chrome, Firefox, and Safari, all taken on the same mach
  
 The best practice from Chromium's POV would be to concatenate stylesheets wherever possible, but to avoid doing so if any of those stylesheets will be individually modified in the future (or if route-splitting makes it more advantageous to cache them separately).
  
+ ##  Slow redrawing of the window content and severe degradation after loading the content on the site
  
+ >  Cause by long style recalc.
+
+Potentially associated animation is "max-height". When the page gets very long, animating max-height requires re-layout and possibly repaint, and that might take time.
