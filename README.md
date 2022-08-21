@@ -111,4 +111,20 @@ CLS, or Cumulative layout shift, is i.e. how much your page jumps around as thin
 
 [^3]: [see https://jakearchibald.com/2022/img-aspect-ratio/](https://jakearchibald.com/2022/img-aspect-ratio/)
  
+ ```css
+ img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+}
+```
+
+#### `auto` and `16 / 9;`
+If both auto and a <ratio> are specified together, the preferred aspect ratio is the specified ratio of width / height unless it is a replaced element with a natural aspect ratio, in which case that aspect ratio is used instead.
+```css
+ .aspect-ratio-demo {
+  aspect-ratio: auto 16 / 9;
+}
+```
+ 
 
