@@ -82,28 +82,33 @@ The best practice from Chromium's POV would be to concatenate stylesheets wherev
 Potentially associated animation is "max-height". When the page gets very long, animating max-height requires re-layout and possibly repaint, and that might take time.
 
  
- ### Cumulative layout shift adjustments
+ ## Cumulative layout shift Adjustments
  
- 1. Lazy load images
+ #### 1. Lazy load images
 ```html
-<img loading="lazy" />
+<img loading="lazy" />[^3]
 ```
 - Prevents downloading/processing off-screen images
 
-2. Compress to lossy webp (still looks great)
+ #### 2. Compress to lossy webp (still looks great)
 ```console
  /repo/dir :~ $ cwebp input.png -q 90 -alpha_q 100 -m 6 -o out.webp
 ```
 - Decreases the size of every image by many multiples: 400kb to 50-120kb.
 
-3. Remove CLS
+ #### 3. Remove CLS
 img { aspect-ratio: 1.4 }
 - Keeps the images from causing jank when they download. Even without the image, the CSS knows the width and height to draw the box.
  
 > [source, https://twitter.com/ryanflorence/status/1560274356579622914](https://twitter.com/ryanflorence/status/1560274356579622914)
  
+#### Solution
+ 
 CLS, or Cumulative layout shift, is i.e. how much your page jumps around as things load in. By setting the aspect ratio upfront the placeholder is presumably going to fill the right size so no jump when rendered in.
+ 
+>**Note**     
+> The question is very similar to "should this image be a <img> or a CSS background-image?" and the answer is the same: Is it content or design?
 
-
-2. 
+[^3]: [see https://jakearchibald.com/2022/img-aspect-ratio/](https://jakearchibald.com/2022/img-aspect-ratio/)
+ 
 
