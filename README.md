@@ -127,4 +127,9 @@ If both auto and a <ratio> are specified together, the preferred aspect ratio is
 }
 ```
  
+## Font Loading 'swap'
+ 
+ When fonts are loaded with default display settings, like `font-display="block"`, browsers will hide text entirely for several seconds instead of showing text with a fallback font.
 
+#### Solution: Add font-display: swap
+This experiment adds `font-display="swap"` to custom fonts to show text sooner.
