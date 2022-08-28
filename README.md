@@ -133,3 +133,18 @@ If both auto and a <ratio> are specified together, the preferred aspect ratio is
 
 #### Solution: Add font-display: swap
 This experiment adds `font-display="swap"` to custom fonts to show text sooner.
+
+ ## Aspect Ratio on `img`'s
+ 
+### Solution: Add Aspect Ratio to Images
+This experiment adds `width="..."` and` height="..." `attributes to specified images, matching their natural width and height, to provide an aspect ratio.
+ 
+ ```html
+ <style>
+  img {
+    width: 100px;
+    aspect-ratio: 1/2;
+    background: green;
+  }
+</style>
+ ```
